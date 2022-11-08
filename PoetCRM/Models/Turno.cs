@@ -19,14 +19,11 @@ namespace PoetCRM.Models
 
         [ForeignKey("Paciente")]
         public int IdPaciente { get; set; }
-        public Paciente Paciente { get; set; }
 
         [ForeignKey("Doctor")]
         public int IdDoctor { get; set; }
-        public Doctor Doctor { get; set; }
 
         [ForeignKey("Especialidad")]
         public int IdEspecialidad { get; set; }
-        public Especialidad Especialidad { get; set; }
     }
 }

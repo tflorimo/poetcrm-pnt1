@@ -20,7 +20,6 @@ namespace PoetCRM.Models
 
         [ForeignKey("Especialidad")]
         public int IdEspecialidad { get; set; }
-        public Especialidad Especialidad { get; set; }
 
     }
 }

@@ -16,6 +16,5 @@ namespace PoetCRM.Models
         [Display(Name ="Descripcion")]
         public string Nombre { get; set; }
 
-        public ICollection<Plan> Planes { get; set; }
     }
 }

@@ -33,7 +33,5 @@ namespace PoetCRM.Models
 
         [ForeignKey("Plan")]
         public int IdPlan { get; set; }
-
-        public Plan Plan{ get; set; }
     }
 }

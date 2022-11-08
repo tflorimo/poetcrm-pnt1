@@ -14,7 +14,5 @@ namespace PoetCRM.Models
         public int IdEspecialidad { get; set; }
         [Display(Name = "Descripcion")]
         public string NombreEspecialidad { get; set; }
-
-        public ICollection<Doctor> Doctores { get; set; }
     }
 }

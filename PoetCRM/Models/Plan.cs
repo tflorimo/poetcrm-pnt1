@@ -18,8 +18,5 @@ namespace PoetCRM.Models
 
         [ForeignKey("ObraSocial")]
         public int IdObraSocial { get; set; }
-
-        public ObraSocial ObraSocial { get; set; }
-
     }
 }
