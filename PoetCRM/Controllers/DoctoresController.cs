@@ -21,7 +21,7 @@ namespace PoetCRM.Controllers
 
         // GET: Doctores
         public async Task<IActionResult> Index()
-        {
+        { 
             return View(await _context.Doctores.ToListAsync());
         }
 
@@ -40,12 +40,18 @@ namespace PoetCRM.Controllers
                 return NotFound();
             }
 
+            // Teniendo al doctor encontrado, busco a través de su IdEspecialidad como FK, la PK de la especialidad que estoy buscando.
+            // En la vista, accedo a ViewBag.EspecialidadDoctor.NombreEspecialidad para llegar finalmente a la descripción.
+            ViewBag.EspecialidadDoctor = _context.Especialidades.Find(doctor.IdEspecialidad);
+            
             return View(doctor);
         }
 
         // GET: Doctores/Create
         public IActionResult Create()
         {
+            List<Especialidad> EspecList = _context.Especialidades.ToList();
+            ViewBag.Especialidades = new SelectList(EspecList, "IdEspecialidad", "NombreEspecialidad");
             return View();
         }
 
@@ -71,12 +77,14 @@ namespace PoetCRM.Controllers
             if (id == null)
             {
                 return NotFound();
-            } 
+            }
+
 
             List<Especialidad> EspecList = _context.Especialidades.ToList();
             ViewBag.Especialidades = new SelectList(EspecList, "IdEspecialidad", "NombreEspecialidad");
 
             var doctor = await _context.Doctores.FindAsync(id);
+            
             if (doctor == null)
             {
                 return NotFound();
@@ -133,7 +141,7 @@ namespace PoetCRM.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.EspecialidadDoctor = _context.Especialidades.Find(doctor.IdEspecialidad);
             return View(doctor);
         }
 

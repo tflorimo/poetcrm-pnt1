@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<PoetCRM.Models.Doctor>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Doctores";
 }
 
-<h1>Index</h1>
+<h1>Listado de Doctores</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Agregar nuevo</a>
 </p>
 <table class="table">
     <thead>
@@ -19,7 +19,7 @@
                 @Html.DisplayNameFor(model => model.Apellido)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdEspecialidad)
+                Especialidad del Profesional
             </th>
             <th></th>
         </tr>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.IdEspecialidad)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdDoctor">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdDoctor">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdDoctor">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdDoctor">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdDoctor">Ver detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdDoctor">Eliminar</a>
             </td>
         </tr>
 }

@@ -1,13 +1,13 @@
 ﻿@model PoetCRM.Models.Doctor
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalle";
 }
 
-<h1>Details</h1>
+<h1>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido)</h1>
 
 <div>
-    <h4>Doctor</h4>
+    <h4>Profesional del Instituto</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -23,14 +23,14 @@
             @Html.DisplayFor(model => model.Apellido)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEspecialidad)
+            Especialidad
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEspecialidad)
+            @ViewBag.EspecialidadDoctor.NombreEspecialidad
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.IdDoctor">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.IdDoctor">Editar</a> |
+    <a asp-action="Index">Volver al listado</a>
 </div>

@@ -1,12 +1,12 @@
 ﻿@model PoetCRM.Models.Doctor
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<h1>Edit</h1>
+<h1>Edición de Profesional</h1>
 
-<h4>Doctor</h4>
+<h4>@Html.DisplayFor(model => model.Nombre) @Html.DisplayFor(model => model.Apellido)</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,19 +24,19 @@
                 <span asp-validation-for="Apellido" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdEspecialidad" class="control-label"></label>
-                @Html.DropDownList("IdEspecialidad", ViewBag.Especialidades as SelectList);
+                <label asp-for="IdEspecialidad" class="control-label">Especialidad del Doctor</label><br />
+                @Html.DropDownList("IdEspecialidad", ViewBag.Especialidades as SelectList, new { @class = "form-control" })
                 <span asp-validation-for="IdEspecialidad" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar cambios" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver al listado</a>
 </div>
 
 @section Scripts {
