@@ -139,10 +139,24 @@ namespace PoetCRM.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var especialidad = await _context.Especialidades.FindAsync(id);
-            _context.Especialidades.Remove(especialidad);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            // Busca algún doctor que tenga asignada esta especialidad, evitando que se borre la misma.
+            var hayDoctores = await _context.Doctores.FirstOrDefaultAsync(m => m.IdEspecialidad == id);
+            if(hayDoctores == null)
+            {
+                var especialidad = await _context.Especialidades.FindAsync(id);
+                _context.Especialidades.Remove(especialidad);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+
+            } else
+            {
+                TempData["msg"] = "<script>alert('No es posible borrar este Especialidad, ya que tiene Doctores asociados!'); history.back();</script>";
+                return View("Notificacion");
+                
+            }
+            
+
+
         }
 
         private bool EspecialidadExists(int id)

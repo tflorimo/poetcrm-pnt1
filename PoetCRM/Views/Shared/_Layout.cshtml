@@ -21,12 +21,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
+                        @if (this.ViewContext.RouteData.Values["controller"].ToString() != "Doctores"){ 
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Turnero" asp-action="Index">Turnero</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Doctores" asp-action="Index">Doctores</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Especialidades" asp-action="Index">Especialidades</a>
                         </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Acerca de PoetCRM</a>
                         </li>

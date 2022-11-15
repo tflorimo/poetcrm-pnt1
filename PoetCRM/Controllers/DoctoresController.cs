@@ -21,8 +21,15 @@ namespace PoetCRM.Controllers
 
         // GET: Doctores
         public async Task<IActionResult> Index()
-        { 
-            return View(await _context.Doctores.ToListAsync());
+        {
+            // return View(await _context.Doctores.ToListAsync());
+
+
+            //            var courses = db.Courses.Include(c => c.Department);
+            //            return View(courses.ToList());
+            var doctores = await _context.Doctores.Include("Especialidad").ToListAsync();
+            
+            return View(doctores);
         }
 
         // GET: Doctores/Details/5
